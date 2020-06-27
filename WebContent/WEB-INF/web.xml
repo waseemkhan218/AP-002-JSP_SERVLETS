@@ -15,4 +15,15 @@
 	<servlet-name>addMapping</servlet-name>
 	<url-pattern>/add</url-pattern>
 </servlet-mapping>
+
+<servlet>
+	<servlet-name>squareMapping</servlet-name>
+	<servlet-class>com.learning.SquareServlet</servlet-class>
+</servlet>
+	
+<servlet-mapping>
+	<servlet-name>squareMapping</servlet-name>
+	<url-pattern>/sq</url-pattern>
+</servlet-mapping>
+
 </web-app>
