@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AddServlet extends HttpServlet {
 	
@@ -41,10 +42,21 @@ public class AddServlet extends HttpServlet {
 		// we need to send data to other servlet. We have few ways of doing it. 
 		// Here we are passing the req from addServlet directly to SquareServlet 
 		
-		req.setAttribute("k", k);
+//		req.setAttribute("k", k);
+//		
+//		RequestDispatcher rd = req.getRequestDispatcher("sq");
+//		rd.forward(req, res);
 		
-		RequestDispatcher rd = req.getRequestDispatcher("sq");
-		rd.forward(req, res);
+		// Here we are sending data to square servlet. But, servlet will send the response to browser and then it's 
+		// redirect to squareServlet.
+		
+		// res.sendRedirect("sq?k="+k);    // Session Management -> URL Rewriting.
+		
+		HttpSession session = req.getSession();
+		
+		session.setAttribute("k", k);
+		
+		res.sendRedirect("sq");
 	}
 	
 }
