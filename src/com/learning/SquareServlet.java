@@ -3,6 +3,7 @@ package com.learning;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,12 +15,22 @@ public class SquareServlet extends HttpServlet {
 		
 //		int k = Integer.parseInt(req.getParameter("k")); 
 		
-		HttpSession session = req.getSession();
+//		HttpSession session = req.getSession();
 		
 		// session.removeAttribute("k");  // This is how we remove session.
 		
-		int k = (int) session.getAttribute("k");
+//		int k = (int) session.getAttribute("k");
 		
+		int k = 0;
+		
+		Cookie cookies[] = req.getCookies();
+		
+		for(Cookie c : cookies)
+		{
+			if(c.getName().contentEquals("k"))
+				k = Integer.parseInt(c.getValue());
+		}
+			
 		k = k * k;
 		
 		PrintWriter out = res.getWriter();
