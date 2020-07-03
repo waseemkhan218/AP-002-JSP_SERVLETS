@@ -6,6 +6,8 @@
  	  Tomcat server will look for the /add servlet mapping in web.xml and send the request to servlet-class
  	  which will be processed by "AddServlet" and send back an response to the user. -->
  
+ <!-- If we are using annotation based configuration. We don't need XML based configuration.
+
 <servlet>
 	<servlet-name>addMapping</servlet-name>
 	<servlet-class>com.learning.AddServlet</servlet-class>
@@ -40,5 +42,7 @@
 	<servlet-name>addMapping</servlet-name>
 	<url-pattern>/home</url-pattern>
 </servlet-mapping>
+
+ -->
 
 </web-app>
