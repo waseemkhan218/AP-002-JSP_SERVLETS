@@ -26,4 +26,19 @@
 	<url-pattern>/sq</url-pattern>
 </servlet-mapping>
 
+<servlet>
+	<servlet-name>testMapping</servlet-name>
+	<servlet-class>com.learning.MyServlet</servlet-class>
+	
+	<init-param>
+	<param-name>name</param-name>
+	<param-value>mohammad</param-value>
+	</init-param>
+</servlet>
+	
+<servlet-mapping>
+	<servlet-name>addMapping</servlet-name>
+	<url-pattern>/home</url-pattern>
+</servlet-mapping>
+
 </web-app>
